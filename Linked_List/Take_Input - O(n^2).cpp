@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
 using namespace std;
 
@@ -21,7 +13,8 @@ class Node{
 };
 
 Node* insert(){
-    cout<<"ENTER NUMBERS , ENTER -1 TO STOP :";
+    // Insert till "-1" is encountered
+    cout<<"ENTER NUMBERS , ENTER -1 TO STOP :"; 
     int data;
     cin>>data;
     
