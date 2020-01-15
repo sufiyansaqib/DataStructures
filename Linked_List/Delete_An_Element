@@ -22,26 +22,42 @@ void print(Node *head){
 }
 
 Node* deleteNode(Node *head, int pos){
-    Node *temp = head;
-    if(pos == 0){
-        head = temp->next;
-        delete temp;
-        return head;
-    }
-    
-    for(int i=0;i<pos-1;i++){
-        if(temp == NULL){
-            cout<<"CANNOT DELETE - YOU ARE TRYING TO DELETE AN ELEMENT OUTSIDE THE RANGE OF THE LIST: ";
+    //***************************Iterative method*************************//
+        Node *temp = head;
+        if(pos == 0){
+            head = temp->next;
+            delete temp;
             return head;
         }
-        temp = temp->next;
-    }
-    
-    Node *NodetoDel = temp->next;
-    temp->next = NodetoDel->next;
-    delete NodetoDel;
-    
-    return head;
+
+        for(int i=0;i<pos-1;i++){
+            if(temp == NULL){
+                cout<<"CANNOT DELETE - YOU ARE TRYING TO DELETE AN ELEMENT OUTSIDE THE RANGE OF THE LIST: ";
+                return head;
+            }
+            temp = temp->next;
+        }
+
+        Node *NodetoDel = temp->next;
+        temp->next = NodetoDel->next;
+        delete NodetoDel;
+
+        return head;
+        
+        //***************************Recursive method*************************//
+            /*Node *temp = head;
+            if(head == NULL){
+                return head;
+            }
+
+            if(pos == 0){
+                head = temp->next;
+                delete temp;
+                return head;
+            }
+
+            head->next = deleteNode(head->next,pos-1);
+            return head;*/
 }
 
 int main()
