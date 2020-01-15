@@ -38,23 +38,44 @@ Node* insert(){
 }
 
 Node* insertAtN(Node *head, int data, int pos){
-    Node *n = new Node(data);
-    if(pos == 0){
-        n->next = head;
-        head = n;
-        return head;
-    }
-    Node *temp = head;
-    for(int i =0;i<pos-1;i++){
-        if(temp == NULL){
-            cout<<"CANNOT INSERT - YOU ARE TRYING TO INSERT AN ELEMENT OUTSIDE THE RANGE OF THE LIST: ";
+    //************************Iterative way***************************//
+        Node *n = new Node(data);
+        if(pos == 0){
+            n->next = head;
+            head = n;
             return head;
         }
-        temp = temp->next;
-    }
-    n->next = temp->next;
-    temp->next = n;
-    return head;
+        Node *temp = head;
+        for(int i =0;i<pos-1;i++){
+            if(temp == NULL){
+                cout<<"CANNOT INSERT - YOU ARE TRYING TO INSERT AN ELEMENT OUTSIDE THE RANGE OF THE LIST: ";
+                return head;
+            }
+            temp = temp->next;
+        }
+        n->next = temp->next;
+        temp->next = n;
+        return head;
+    
+    //**************************Recursive way*************************//
+        /*if(head == NULL){
+            return head;
+        }
+        else if(head == NULL && pos == 0){
+            Node *n = new Node(data);
+            head = n;
+            return head;
+        }
+        if(pos == 0){
+            Node *n = new Node(data);
+            n->next = head;
+            head = n;
+            return head;
+        }
+        else{
+            head->next = insertAtN(head->next,data,pos-1);
+        }
+        return head;*/
 }
 
 void print(Node *head){
